@@ -27,23 +27,25 @@ export default function Cart() {
             </Link>
           </div>
 
-          <div className='grid gap-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
             {allCartItems?.map((item) => (
-              <div  key={item.product.id}  className='flex items-center bg-white shadow-md rounded-lg p-4 border border-gray-200 hover:bg-gray-50' style={{ height: '200px' }} >
-                <img src={item.product.imageCover} className='h-full w-40 object-cover rounded-lg' alt='' />
-                <div className='flex-col px-6 ms-auto'>
+              <div key={item.product.id} className='flex items-center bg-white shadow-md rounded-lg p-4 border border-gray-200 hover:bg-gray-50'>
+                <img src={item.product.imageCover} className='h-32 w-32 object-cover rounded-lg' alt='' />
+                <div className='flex-col px-4 ms-auto'>
                   <h3 className='text-lg font-semibold text-gray-900'>{item.product.title}</h3>
-                  <div className='flex items-center  '>
-                    <button onClick={() => updateProductCart(item.product.id, item.count - 1)} className='px-2 py-1 text-gray-500 bg-gray-200 rounded-full hover:bg-gray-300' >
+                  <div className='flex items-center my-2'>
+                    <button onClick={() => updateProductCart(item.product.id, item.count - 1)} className='px-2 py-1 text-gray-500 bg-gray-200 rounded-full hover:bg-gray-300'>
                       -
                     </button>
                     <span className='mx-4'>{item.count}</span>
-                    <button   onClick={() => updateProductCart(item.product.id, item.count + 1)}  className='px-2 py-1 text-gray-500 bg-gray-200 rounded-full hover:bg-gray-300' >
+                    <button onClick={() => updateProductCart(item.product.id, item.count + 1)} className='px-2 py-1 text-gray-500 bg-gray-200 rounded-full hover:bg-gray-300'>
                       +
                     </button>
                   </div>
                   <h3 className='mt-2 font-semibold text-gray-900'>{item.price} EGP</h3>
-                  <button onClick={() => removeProductCart(item.product.id)}  className='mt-2 text-red-600 hover:underline'   >  Remove From Cart </button>
+                  <button onClick={() => removeProductCart(item.product.id)} className='mt-2 text-red-600 hover:underline'>
+                    Remove From Cart
+                  </button>
                 </div>
               </div>
             ))}

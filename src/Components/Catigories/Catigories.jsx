@@ -21,7 +21,7 @@ export default function CategoryList() {
       <h2 className=" text-2xl font-bold text-gray-800 dark:text-white mb-5">Categories</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {categories?.map((category) => (
-          <div key={category._id} className=   "productCard bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 text-center">
+          <div key={category._id} className=   "productCard bg-white\0 shadow-md rounded-lg p-4 text-center">
                
                <img src={category.image} alt="" className="h-64 w-full rounded-lg" />
                 <h3 className="text-xl m-3 ">{category.name}</h3>

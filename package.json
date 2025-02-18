@@ -1,7 +1,7 @@
 {
   "name": "e-comm",
   "private": true,
-  "homepage": "https://M-Oth111.github.io/ E-Commerce",
+  "homepage":"https://M-Oth111.github.io/E-Commerce",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite preview"
    
   },
   "dependencies": {

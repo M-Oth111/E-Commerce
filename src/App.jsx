@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom';
 import './App.css';
 import Goard from './Components/Goard/Goard';
 import Layout from '../src/Components/Layout/Layout';
@@ -9,10 +9,8 @@ import Products from '../src/Components/Products/Products';
 import Brands from '../src/Components/Brands/Brands';
 import Login from '../src/Components/Login/Login';
 import Register from '../src/Components/Register/Register';
-import AouthContextProvider, { aouthContext } from './Components/Context/AouthContext';
-import { useContext } from 'react';
+import AouthContextProvider  from './Components/Context/AouthContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import WishList from './Components/WishList/WishList';
 import ProducDetailes from './Components/producrDetails/ProducDetailes';
 import CartContextProvider from './Components/Context/cartContext';
 import Wishlist from './Components/WishList/WishList';

@@ -35,33 +35,34 @@ export default function Home() {
 
   return (
     <>
-      <div className="grid grid-cols-6 gap-4 p-5 container mx-auto">
-        <div className="col-span-4">
-          <Swiper modules={[Navigation, Pagination]} navigation pagination={{ clickable: true }} loop={true} className="rounded-lg shadow-lg">
-            <SwiperSlide><img src={sora4} alt="Slide 1" className="w-full h-96 object-cover rounded-lg" /></SwiperSlide>
-            <SwiperSlide><img src={sora2} alt="Slide 2" className="w-full h-96 object-cover rounded-lg" /></SwiperSlide>
-          </Swiper>
-        </div>
-        <div className="col-span-2">
-          <img src={sora3} alt="Slide 3" className="w-full h-48 object-cover rounded-lg" />
-          <img src={sora1} alt="Slide 4" className="w-full h-48 object-cover rounded-lg mt-2" />
-        </div>
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 p-5 container mx-auto">
+  <div className="col-span-1 md:col-span-4">
+    <Swiper modules={[Navigation, Pagination]} navigation pagination={{ clickable: true }} loop={true} className="rounded-lg shadow-lg">
+      <SwiperSlide><img src={sora4} alt="Slide 1" className="w-full h-96 object-cover rounded-lg" /></SwiperSlide>
+      <SwiperSlide><img src={sora2} alt="Slide 2" className="w-full h-96 object-cover rounded-lg" /></SwiperSlide>
+    </Swiper>
+  </div>
+  <div className="col-span-1 md:col-span-2">
+    <img src={sora3} alt="Slide 3" className="w-full h-48 object-cover rounded-lg" />
+    <img src={sora1} alt="Slide 4" className="w-full h-48 object-cover rounded-lg mt-2" />
+  </div>
+</div>
 
-      <div className="container mx-auto my-5">   {catLoad ? (
-          <p className="text-center text-green-600 text-2xl">Loading categories...</p>
-        ) : (
-          <Swiper modules={[Navigation, Pagination]} slidesPerView={6} navigation pagination={{ clickable: true }} loop={true} className="rounded-lg shadow-lg">
-            {categories?.map((category) => (
-              <SwiperSlide key={category._id} className="text-center">
-               
- <img src={category.image} alt="" className="h-60 w-full rounded-lg" />
-                <h3 className="text-xl m-3 ">{category.name}</h3>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
-      </div>
+<div className="container mx-auto my-5">
+  {catLoad ? (
+    <p className="text-center text-green-600 text-2xl">Loading categories...</p>
+  ) : (
+    <Swiper modules={[Navigation, Pagination]} slidesPerView={6}  navigation pagination={{ clickable: true }} loop={true} className="rounded-lg shadow-lg">
+      {categories?.map((category) => (
+        <SwiperSlide key={category._id} className="text-center">
+          <img src={category.image} alt="" className="h-60 w-full rounded-lg" />
+          <h3 className="text-xl m-3">{category.name}</h3>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  )}
+</div>
+
 
       <div className="container mx-auto">
         <h2 className="text-6xl font-bold text-gray-800 mb-5 text-center">Our Products</h2>

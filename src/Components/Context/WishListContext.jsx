@@ -8,7 +8,6 @@ export default function WishlistContextProvider({ children }) {
     const [Wishlist, setWishlist] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    // ✅ دالة لجلب بيانات قائمة الأمنيات
     async function getWishlist() {
         setLoading(true);
         try {
@@ -28,7 +27,6 @@ export default function WishlistContextProvider({ children }) {
         getWishlist();
     }, []);
 
-    // ✅ دالة لإضافة منتج إلى قائمة الأمنيات
     async function addWishlist(productId) {
         try {
             await axios.post("https://ecommerce.routemisr.com/api/v1/wishlist", 
@@ -37,7 +35,6 @@ export default function WishlistContextProvider({ children }) {
             );
             toast.success("Product added to Wishlist!");
 
-            // 🔄 تحديث القائمة محليًا بدلاً من استدعاء API مرة أخرى
             setWishlist((prevWishlist) => [...prevWishlist, { _id: productId }]);
 
         } catch (error) {
@@ -46,7 +43,6 @@ export default function WishlistContextProvider({ children }) {
         }
     }
 
-    // ✅ دالة لحذف منتج من قائمة الأمنيات
     async function removeWishlist(productId) {
         try {
             await axios.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`, {
@@ -54,7 +50,6 @@ export default function WishlistContextProvider({ children }) {
             });
             toast.success("Product removed from Wishlist!");
 
-            // 🔄 تحديث القائمة محليًا بدون استدعاء API مرة أخرى
             setWishlist((prevWishlist) => prevWishlist.filter(item => item._id !== productId));
 
         } catch (error) {
@@ -63,7 +58,6 @@ export default function WishlistContextProvider({ children }) {
         }
     }
 
-    // ✅ دالة للتحقق مما إذا كان المنتج موجودًا في قائمة الأمنيات
     const isInWishlist = (productId) => Wishlist.some(item => item._id === productId);
 
     return (
